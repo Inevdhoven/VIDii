@@ -8,16 +8,16 @@
 }
 
 body {
-  margin:0;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 button:not([disabled]) {
   cursor:pointer;
 }
-
-
-
-
 
 /*********************/
 /* CUSTOM PROPERTIES */
@@ -27,19 +27,57 @@ button:not([disabled]) {
   --color-headings:crimson
 }
 
-
-
-
-
 /********************/
 /* ALGEMENE STYLING */
 /********************/
 
 h1 {
   color:var(--color-headings);
+  font-size: 70px;
 }
 
+ol {
+  display: none;
+}
 
-/* ... */
+/********************/
+/* DEEL 1 */
+/********************/
 
+header {
+  width: 50%;
+  display: grid;
+  place-items: center;
+}
 
+main {
+  width: 50%;
+  margin: 0 5em;
+  display: flex;
+  justify-content: end;
+}
+
+article {
+  background-color: lightblue;
+  width: clamp(25rem, 30vw, 30rem);
+  height: clamp(34rem, 80vh, 60rem);
+  /* height: 80vh; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+}
+
+h2 {
+  display: grid;
+  width: min-content;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 40px;
+}
+
+img {
+  max-width: 80%;
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom;
+}
