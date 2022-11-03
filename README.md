@@ -64,6 +64,19 @@ Aan deze technieken/punten wil ik werken:
 
 </details>
 
+<details>
+<summary>Schetsen van gekozen ontwerp</summary>
+
+### De schetsen:
+
+<img src="readme-images/" width="375px" alt="Schetsen gekozen ontwerp">
+
+### Mijn idee:
+
+Mijn idee is een
+
+</details>
+
 ## Voortgang/Feedback 1
 
 <details>
@@ -71,15 +84,15 @@ Aan deze technieken/punten wil ik werken:
 
 ### Bevinding 1:
 
-Het eerste idee dat ik had geschets van Winnie the Pooh, past niet goed bij Winnie the Pooh.
+Het eerste idee dat ik had geschets van Winnie the Pooh, past niet goed bij de evolutie van Winnie the Pooh.
 
 #### oplossing:
 
-Dit idee ga ik niet gebruiken, omdat het niet goed past bij Winnie the Pooh en ik het ook een beetje te simple vind. Daarom ga ik door met de andere ideeën.
+Dit idee ga ik daarom niet gebruiken, omdat het niet goed past bij Winnie the Pooh en ik het ook een beetje te simple vindt. Daarom ga ik door met de andere ideeën.
 
 ### Bevinding 2:
 
-Het tweede idee is het beste idee en daar kan ik andere ideeën ook een beetje in verwerken.
+Het tweede idee is het beste idee en daar kan ik andere ideeën ook een beetje in verwerken. Ik kreeg de tip om de kaart te verwerken in een boek, omdat het hele verhaal van Winnie the Pooh daarmee is begonnen.
 
 #### oplossing:
 
@@ -87,7 +100,27 @@ Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het 
 
 ### Bevinding 3:
 
+Ik moet nog meer nadenken over het toevoegen van eastereggs.
+
+#### oplossing:
+
 ...
+
+### Bevinding 4:
+
+Honing idee toevoegen aan idee 2.
+
+#### oplossing:
+
+...Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+
+### Bevinding 5:
+
+Leuke animaties toevoegen aan het boek en de rest van de website. Bijvoorbeeld bijtjes die rond vliegen en honing dat animeerd.
+
+#### oplossing:
+
+...Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
 
 </details>
 
@@ -163,17 +196,23 @@ Korte omschrijving met plaatje(s)
 Korte omschrijving met plaatje(s)
 
   <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="bummer">
+
 </details>
 
 ## Bronnenlijst
 
 <details open>
-<summary>continu bijhouden terwijl je werkt</summary>
+  <summary>continu bijhouden terwijl je werkt</summary>
 
 Nb. Wees specifiek ('css-tricks' als bron is bijv. niet specifiek genoeg).
 
-1. bron 1
-2. bron 2
-3. ...
+1. https://stackoverflow.com/questions/107701/how-can-i-remove-ds-store-files-from-a-git-repository
+2. https://codepen.io/shooft/pen/ExNLMyr
+3. https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin
+4. https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility
+5. https://greensock.com/forums/topic/18708-reverse-a-morph-and-then-fluidly-repeat-from-the-start/
+6. https://greensock.com/morphsvg/
+7. https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox
+8. https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL
 
 </details>
