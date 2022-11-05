@@ -57,10 +57,10 @@ Gisteravond heb ik nog een van de Winnie the Pooh films gekeken. Hierin kwam vee
 
 Aan deze technieken/punten wil ik werken:
 
-- Css animaties
+- Css animaties/transitions
 - Semantisch correcte HTML
 - Het schrijven van nette CSS
-- Meer uitdaging zoeken, door bijvoorbeeld een boek met CSS te maken
+- Uitdaging zoeken, door bijvoorbeeld een boek met CSS te maken en een SVG te animeren
 
 </details>
 
@@ -73,7 +73,7 @@ Aan deze technieken/punten wil ik werken:
 
 ### Mijn idee:
 
-Mijn idee is een
+Mijn idee is om mijn tijdlijn te beginnen met een soort beginpagina, waar druipende honing, de titel en het boek. Wanneer je op het boek klikt opent het en zie je de kaart van het Hundred Acre Woods. Op de kaart kun je op verschillende plekken klikken en ga je naar de verschillende jaren waarin Winnie the Pooh is veranderd. Dit gebeurd door in te zoomen op de kaart en dan komt er een nieuwe afbeelding in beeld van uit die tijd met informatie over Winnie the Pooh in die tijd.
 
 </details>
 
@@ -96,7 +96,7 @@ Het tweede idee is het beste idee en daar kan ik andere ideeën ook een beetje i
 
 #### oplossing:
 
-Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+Ik heb de kaart van de Hundred Acre Woods in het book verwerkt door deze over twee pagina's te verdelen. Hier van heb ik geleerd dat het handig is om gebruik te maken van de aspect-ratio om het zo makkelijker te maken om de afbeeldingen te laten mee schalen. Omdat de afbeelding in twee labels staat moet de ene kant de ene helft van de afbeelding laten zien en het andere label de andere kant.
 
 ### Bevinding 3:
 
@@ -104,7 +104,7 @@ Ik moet nog meer nadenken over het toevoegen van eastereggs.
 
 #### oplossing:
 
-...
+Wanneer je over de onderkant van de map hovert komt er een bijl voorbij, wat aangeeft dat het onderdeel is van de nieuwe horror film die in 2023 uitkomt.
 
 ### Bevinding 4:
 
@@ -112,7 +112,7 @@ Honing idee toevoegen aan idee 2.
 
 #### oplossing:
 
-...Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+Ik heb het idee om iets met honing te doen toegevoegd aan mijn idee door aan de bovenkant van de pagina een soort honing druip effect te creeëren. Dit was een hele opgave om voor elkaar te krijgen. Eerst heb ik het geprobeerd met <animate> maar dit werkte helaas niet. Daarna heb ik met de docent geprobeerd om met GreenSock Morph SVG de animatie werkend te krijgen. Dit is uiteindelijk na veel proberen en een goede SVG te maken gelukt.
 
 ### Bevinding 5:
 
