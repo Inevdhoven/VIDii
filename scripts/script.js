@@ -1,5 +1,44 @@
 // JavaScript Document
-console.log("Howdy!");
+const header = document.querySelector("header");
+const inputChecked = document.querySelector("input:nth-of-type(2)");
+const boek = document.querySelector("article:first-of-type");
+// const map = document.querySelector("article:nth-of-type(2)");
+
+inputChecked.addEventListener("click", () => {
+    addClassHeader();
+});
+
+function addClassHeader() {
+    if (inputChecked.checked) {
+        header.classList.add("open");
+
+        header.addEventListener("transitionend", () => {
+            header.classList.add("boek-open");
+        });
+
+        boek.addEventListener("transitionend", () => {
+            boek.classList.add("map");
+        });
+    } 
+}
+
+const button = document.querySelectorAll("li > button");
+console.log(button);
+
+// button.addEventListener("click", openInfo);
+
+button.forEach((item) => {
+    console.log(item);
+    item.addEventListener("click", () => {
+        item.nextElementSibling.classList.add("open-info");
+        boek.classList.add("flat");
+    });
+});
+
+// function openInfo() {
+//     console.log("Hewwooo");
+//     button.classList.add("open-info");
+// }
 
 // https://greensock.com/morphsvg/ en https://greensock.com/forums/topic/18708-reverse-a-morph-and-then-fluidly-repeat-from-the-start/
 TweenMax.to("#start", 2, {morphSVG: "#eind", ease: Sine.easeInOut, yoyo:true, repeat:-1});
