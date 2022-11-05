@@ -1,10 +1,22 @@
 /*************/
+/* Fonts */
+/*************/
+
+@font-face {
+  font-family: 'Chalk';
+  src: url('../fonts/pencil-pete-webfont.woff2') format('woff2'),
+       url('../fonts/pencil-pete-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*************/
 /* CSS RESET */
 /*************/
 
 /* naar een idee van Jen Simmons */
 *, *::after, *::before {
-  box-sizing:border-box;  
+  box-sizing: border-box;  
 }
 
 body {
@@ -13,10 +25,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  background-color: rgb(149,104,63);
 }
 
 button:not([disabled]) {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 /*********************/
@@ -24,7 +38,9 @@ button:not([disabled]) {
 /*********************/
 
 :root {
-  --color-headings:crimson
+  --color-headings: crimson;
+  --book-clamp: clamp(16rem, 50vmin, 30rem);
+  --book-clamp-big: clamp(16rem, 60vmin, 30rem);
 }
 
 /********************/
@@ -32,39 +48,221 @@ button:not([disabled]) {
 /********************/
 
 h1 {
-  color:var(--color-headings);
-  font-size: 70px;
-}
-
-ol {
-  display: none;
+  /* color:var(--color-headings); */
+  color: #fff;
+  font-size: 4.5em;
+  font-family: 'Chalk';
+  font-weight: 700;
 }
 
 /********************/
 /* DEEL 1 */
 /********************/
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#eind {
+  visibility: hidden;
+}
+
+#start, #eind {
+  fill: #fccc00;
+}
 
 header {
-  width: 50%;
+  width: 60%;
+  height: 100vh;
   display: grid;
-  place-items: center;
+  place-items: end center;
+  position: relative;
+  margin: 0 0 0.1em 5em;
+
+  transition: 1s;
 }
+
+header.open {
+  /* animation: slide 1s ease forwards; */
+  transform: translateX(-50em);
+}
+
+header.boek-open {
+  position: fixed;
+  left: -9999em;
+}
+
+/* @keyframes slide {
+  0% {
+    transform: translateX(0);
+    width: 60%;
+    height: 100vh;
+  }
+  90% {
+    transform: translateX(-50em);
+    width: 60%;
+    height: 100vh;
+  }
+  100% {
+    transform: translateX(-50em);
+    width: 0;
+    height: 0;
+  }
+} */
+
+/* header.boek-open {
+  display: none; 
+} */
+
+/* header div {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+} */
 
 main {
-  width: 50%;
-  margin: 0 5em;
-  display: flex;
-  justify-content: end;
+  width: 40%;
+  /* display: flex;
+  justify-content: end; */
+  position: relative;
+  /* transition: right 10s; */
+  perspective: 100em;
+  transform-style: preserve-3d;
 }
 
-article {
-  background-color: lightblue;
-  width: clamp(25rem, 30vw, 30rem);
-  height: clamp(34rem, 80vh, 60rem);
+header.boek-open + main {
+  max-width: calc(100vw - 2 * 5em);
+  width: 100%;
+  height: 100vh;
+  display: block;
+  position: absolute;
+  right: 0;
+  /* margin-left: var(--book-clamp); */
+}
+
+/* Vanaf hieronder is een deel css van de volgende source https://codepen.io/shooft/pen/ExNLMyr */
+article:first-of-type {
+  width: var(--book-clamp);
+  /* height: clamp(34rem, 88.8vh, 60rem); */
+  aspect-ratio: 1133/1602;
   /* height: 80vh; */
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: end; */
+  /* position: relative; */
+  position: absolute;
+  right: calc(var(--book-clamp-big) / 3);
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 2s;
+  transform-style: preserve-3d; /* Zorgt voor het 3D effect */
+}
+
+article.map {
+  width: var(--book-clamp-big);
+  right: calc(50vw - var(--book-clamp-big));
+  transform: translateY(-50%) rotateX(50deg);
+}
+
+section {
+  position: absolute;
+  inset:0;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
+
+  transform-origin: left center; /* Geeft het punt aan waaruit word bewogen https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin*/
+	transform: perspective(250em) rotatey(var(--endAngle)); /* Perspective -> Geeft de z weer als je er 0 neer zet is het plat, hoe groter het cijfer hoe meer het naar je toe komt */
+	transform-style: preserve-3d; /* Zorgt voor het 3D effect */
+	transition: 1s transform;
+}
+
+input {
+  display: none;
+}
+
+/* Zorgt ervoor dat het boek dicht geklapt is en bij de kaft begint */
+input:checked + input + section {
+	transform: perspective(50em) rotatey(var(--startAngle)); /* RotateY -> Het roteren van de Y as waar de --startAngle van elke sectie wordt gepakt */
+} 
+
+/* Zorgt er voor dat de achterst pagina ook echt achter staat */
+input:checked + input + section ~ section,
+input:checked + section ~ section {
+	transform: perspective(50em) rotatey(var(--startAngle)); 
+}
+
+/* input:nth-of-type(1):checked + input + section {
+  transform: translate(-10em, -10em);
+} */
+
+/* Geven de rotatie angles aan die in de ratateY komen te staan van de transform */
+section:nth-of-type(1) {
+	--startAngle: -0.04deg;
+	--endAngle: -180deg;
+}
+
+section:nth-of-type(2) {
+	--startAngle: -0.03deg;
+	--endAngle: -179.99deg;
+}
+
+section:nth-of-type(3) {
+	--startAngle: -0.02deg;
+	--endAngle: -179.98deg;
+}
+
+section label {
+	background-color: lightblue;
+  /* width: clamp(25rem, 30vw, 30rem); */
+  /* height: clamp(34rem, 89vh, 60rem); */
+  width:100%;
+  height:100%;
+  display:block;
+
+  /* overflow: hidden; */
+	backface-visibility: hidden; /* Zorgt dat de achterkant van de pagina niet zichtbaar is */
+  transform-style: preserve-3d;
+}
+
+section:first-of-type label:first-of-type {
+  display: grid;
+	place-items: self-end;
+}
+
+section:nth-of-type(2) label:first-of-type {
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+section:first-of-type label:nth-of-type(2) img,
+section:nth-of-type(2) label:first-of-type img {
+  /* max-width: inherit; */
+  /* width: auto; */
+  /* max-height: 100%; */
+  height: 100%;
+  display:block;
+}
+
+section:nth-of-type(2) label:nth-of-type(2) img {
+  max-width: 100%;
+  width: 100%;
+}
+
+section label:first-child {
+	position: relative;
+	background-color: red;
+}
+
+section label:last-child {
+	position: absolute;
+	left: 0; 
+  top: 0;
+	background-color: goldenrod;
+	transform: rotatey(180deg);
 }
 
 h2 {
@@ -72,12 +270,128 @@ h2 {
   width: min-content;
   margin: 0 auto;
   text-align: center;
-  font-size: 40px;
+  font-size: 3em;
+  font-family: new-spirit, serif;
+  font-weight: 700;
 }
 
-img {
+main article:first-of-type section:first-of-type label:first-of-type img { 
   max-width: 80%;
   width: 100%;
   object-fit: contain;
   object-position: bottom;
 }
+
+main article:nth-of-type(2) {
+  display: none;
+}
+
+main article.map {
+  display: block
+}
+
+main section label ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+main section:nth-of-type(2) label:first-of-type ol {
+  pointer-events: all;
+}
+
+main section label ol li {
+  position: absolute;
+  z-index: 1;
+  transform-style: preserve-3d;
+}
+
+main section:first-of-type label:nth-of-type(2) ol li:nth-of-type(1) {
+  bottom: 16vh;
+}
+
+main section:first-of-type label:nth-of-type(2) ol li:nth-of-type(2) {
+  top: 26vh;
+}
+
+main section:first-of-type label:nth-of-type(2) ol li:nth-of-type(3) {
+  top: 4vh;
+  left: 4vh;
+}
+
+main section:first-of-type label:nth-of-type(2) ol li:nth-of-type(4) {
+  top: 12vh;
+  left: 18vw;
+}
+
+main section:nth-of-type(2) label:nth-of-type(1) ol li:nth-of-type(1) {
+  top: 0;
+  left: 3vw;
+}
+
+main section:nth-of-type(2) label:nth-of-type(1) ol li:nth-of-type(2) {
+  top: 19vh;
+  right: 0;
+}
+
+main section:nth-of-type(2) label:nth-of-type(1) ol li:nth-of-type(3) {
+  bottom: 0;
+  left: 0;
+}
+
+main section label ol li button:first-of-type {
+  padding: 4vw;
+  border: none;
+}
+
+main section label ol li div {
+  display: none;
+}
+
+main section label ol li div img {
+  max-width: 30vw;
+  width: 100%;
+  height: auto;
+}
+
+main section label ol li div h2 {
+  font-size: 2em;
+}
+
+main section label ol li div.open-info {
+  display: block;
+  transform-origin: center bottom;
+  transform: rotateX(-45deg);
+  background: yellow;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+
+}
+
+/* label > div {
+  position: absolute;
+  top: 10;
+  left: 0;
+  width: 80%;
+  height: 6em;
+  background-color: red;
+  transform-style: preserve-3d;
+  perspective: 20em;
+}
+
+div div {
+  transform-origin: center bottom;
+  transform: rotateX(-45deg);
+  background: yellow;
+  position: absolute;
+  width: 4em;
+  height: 4em;
+  bottom: 0;
+  left: 0;
+} */
