@@ -214,5 +214,8 @@ Nb. Wees specifiek ('css-tricks' als bron is bijv. niet specifiek genoeg).
 6. https://greensock.com/morphsvg/
 7. https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox
 8. https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL
+9. https://www.w3schools.com/cssref/tryit.php?filename=trycss3_perspective1
+10. https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
+11. https://gomakethings.com/how-to-get-the-next-and-previous-siblings-of-an-element-with-vanilla-js/
 
 </details>
