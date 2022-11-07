@@ -229,5 +229,7 @@ Nb. Wees specifiek ('css-tricks' als bron is bijv. niet specifiek genoeg).
 9. https://www.w3schools.com/cssref/tryit.php?filename=trycss3_perspective1
 10. https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
 11. https://gomakethings.com/how-to-get-the-next-and-previous-siblings-of-an-element-with-vanilla-js/
+12. https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
+13. https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke
 
 </details>
