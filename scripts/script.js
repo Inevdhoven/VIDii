@@ -23,17 +23,23 @@ function addClassHeader() {
 }
 
 const button = document.querySelectorAll("li > button");
-console.log(button);
+const info = document.querySelector("li > div");
 
 // button.addEventListener("click", openInfo);
 
 button.forEach((item) => {
     console.log(item);
     item.addEventListener("click", () => {
-        item.nextElementSibling.classList.add("open-info");
-        boek.classList.add("flat");
+        item.nextElementSibling.classList.toggle("open-info");
     });
 });
+
+// info.forEach((i) => {
+//     console.log(i);
+//     i.addEventListener("click", () => {
+//         i.contains("open-info").classList.remove("open-info");
+//     });
+// });
 
 // function openInfo() {
 //     console.log("Hewwooo");
