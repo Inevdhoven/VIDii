@@ -120,7 +120,7 @@ Leuke animaties toevoegen aan het boek en de rest van de website. Bijvoorbeeld b
 
 #### oplossing:
 
-...Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+Wanneer je het boek opent animeert deze naar het midden en wanneer je op de kaart op de buttons klikt animeren deze ook naar boven.
 
 </details>
 
@@ -130,23 +130,35 @@ Leuke animaties toevoegen aan het boek en de rest van de website. Bijvoorbeeld b
   <summary>Mijn bevindingen + wijzigingen (minimaal 5)</summary>
   
   ### Bevinding 1:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  Het is nu nog niet duidelijk dat je op het boek kan klikken.
 
 #### oplossing:
 
-Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+Dit zou ik kunnen oplossen door een hover state te maken dat de pagina al een beetje roteert of er echt click me op te zetten.
 
 ### Bevinding 2:
 
-Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+Op de kaart duidelijker maken waar je kunt klikken, nu is dat alleen duidelijk door dat er een handje komt.
 
 #### oplossing:
 
-Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+Dit zou ik aan kunnen passen door om het gebied een border te plaatsen.
 
 ### Bevinding 3:
 
-...
+Nu kun je alle popups van Winnie the Pooh tegelijk openen waardoor ze over elkaar vallen.
+
+#### oplossing:
+
+Oplossen door ervoor te zorgen dat wanneer je er een opent de andere sluiten.
+
+### Bevinding 4:
+
+Responsive gaat hij nog niet helemaal goed.
+
+#### oplossing:
+
+Goed kijken hoe ik res
 
 </details>
 
