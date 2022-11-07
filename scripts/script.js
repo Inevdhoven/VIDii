@@ -34,6 +34,22 @@ button.forEach((item) => {
     });
 });
 
+
+
+const radios = document.querySelectorAll("input[type='radio']");
+
+radios.forEach( radio => {
+    radio.addEventListener("change", poohsInklappen);
+});
+
+function poohsInklappen() {
+    const openPoohs = document.querySelectorAll(".open-info");
+
+    openPoohs.forEach(openPooh => {
+        openPooh.classList.remove("open-info");
+    });
+}
+
 // info.forEach((i) => {
 //     console.log(i);
 //     i.addEventListener("click", () => {
