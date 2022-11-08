@@ -18,9 +18,10 @@
   --color-background: rgb(149 104 63);
   --color-honing: rgb(252 204 0);
   --color-white: rgb(255 255 255);
-  --color-boek: rgb(201 152 107);
   --color-red: rgb(159,11,0);
   --color-beige: rgb(241,215,184);
+  --color-light-beige: rgb(240,225,211);
+
   --book-clamp: clamp(16rem, 50vmin, 30rem);
   --book-clamp-big: clamp(16rem, 70vmin, 30rem);
 }
@@ -37,11 +38,15 @@
 body {
   height: 100vh;
   margin: 0;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  background-color: var(--color-background);
+
+  /* background-color: var(--color-background); */
+  background: rgb(149,104,63);
+  background: linear-gradient(90deg, rgba(149,104,63,1) 0%, rgba(166,119,76,1) 25%, rgba(193,146,104,1) 50%, rgba(182,134,89,1) 75%, rgba(149,104,63,1) 100%);
 }
 
 button:not([disabled]), 
@@ -55,46 +60,63 @@ label * {
 /********************/
 
 h1 {
+  margin-bottom: 0.95em;
+
   color: var(--color-white);
+  
   font-size: 4.5em;
   font-family: 'Chalk', fantasy;
   font-weight: 700;
-  margin-bottom: 0.95em;
 }
 
 h2 {
-  display: grid;
   width: min-content;
   margin: 0 auto;
-  text-align: center;
+
+  display: grid;
+  
   font-size: 3em;
   font-family: new-spirit, serif;
   font-weight: 700;
+  text-align: center;
+
   color: var(--color-red);
   -webkit-text-stroke: 1px var(--color-beige); /* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke */
 }
 
 h3 {
-  font-family: new-spirit, serif;
-  font-weight: 700;
-  font-size: 1em;
   margin: 0 0 0.2em 0;
+
+  font-family: new-spirit, serif;
+  font-size: 1em;
+  font-weight: 700;
+
   color: var(--color-red);
 }
 
 p {
   margin: 0 0 0.5em 0;
+
+  font-family: new-spirit, serif;
   font-size: 1em;
+  font-weight: 400;
 }
 
 button {
-  border: none;
-  transition: 1s;
   width: 100%;
+  border: none;
+  border-radius: 50%;
   aspect-ratio: 3/1;
+
+  transition: 1s;
+  
   font-size: 0;
+
   color: transparent;
+
   background-color: transparent;
+  background-image: url("../images/circle.png");
+  background-size: cover;
   backface-visibility: hidden;
 }
 
@@ -104,12 +126,18 @@ button:hover {
 
 button:focus-visible {
   background-color: var(--color-red);
+
   opacity: 0.5;
+
   outline: none;
 }
 
+input:focus-visible + label {
+  outline: 1em solid red;
+}
+
 /********************/
-/* HONING */
+/* HONING ANIMATIE*/
 /********************/
 
 svg {
@@ -123,7 +151,8 @@ svg {
 }
 
 #start, #eind {
-  fill: var(--color-honing);
+  /* fill: var(--color-honing); */
+  fill: url(#MyGradient);
 }
 
 /********************/
@@ -133,10 +162,12 @@ svg {
 header {
   width: 60%;
   height: 100vh;
+  margin: 0 0 0.1em 5em;
+
   display: grid;
   place-items: end start;
   position: relative;
-  margin: 0 0 0.1em 5em;
+
   transition: 1s;
 }
 
@@ -155,7 +186,9 @@ header.boek-open {
 
 main {
   width: 40%;
+
   position: relative;
+
   perspective: 100em;
   transform-style: preserve-3d;
 }
@@ -164,6 +197,7 @@ header.boek-open + main {
   max-width: calc(100vw - 2 * 5em);
   width: 100%;
   height: 100vh;
+
   display: block;
   position: absolute;
   right: 0;
@@ -173,18 +207,22 @@ header.boek-open + main {
 article:first-of-type {
   width: var(--book-clamp);
   aspect-ratio: 1133/1602;
+
   position: absolute;
   right: calc(var(--book-clamp-big) / 5);
   top: 50%;
+
   transform: translateY(-50%);
-  transition: 2s;
   transform-style: preserve-3d; /* Zorgt voor het 3D effect */
+  transition: 2s;
 }
 
 main article.map {
-  display: block;
   width: var(--book-clamp-big);
+
+  display: block;
   right: calc(50vw - var(--book-clamp-big));
+
   transform: translateY(-50%) rotateX(50deg);
 }
 
@@ -193,14 +231,16 @@ main article:nth-of-type(2) {
 }
 
 section {
-  position: absolute;
-  inset:0;
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
+  position: absolute;
+  inset:0;
+
   transform-origin: left center; /* Geeft het punt aan waaruit word bewogen https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin*/
   transform: perspective(250em) rotateY(var(--endAngle)); /* Perspective -> Geeft de z weer als je er 0 neer zet is het plat, hoe groter het cijfer hoe meer het naar je toe komt */
   transform-style: preserve-3d; /* Zorgt voor het 3D effect */
+  
   transition: 1s transform;
 }
 
@@ -236,12 +276,14 @@ section:nth-of-type(3) {
 }
 
 section label {
-background-color: lightblue;
   width:100%;
   height:100%;
+
   display:block;
-  backface-visibility: hidden; /* Zorgt dat de achterkant van de pagina niet zichtbaar is */
+
   transform-style: preserve-3d;
+
+  backface-visibility: hidden; /* Zorgt dat de achterkant van de pagina niet zichtbaar is */
 }
 
 section:first-of-type label:first-of-type {
@@ -252,7 +294,18 @@ section:first-of-type label:first-of-type {
 section:nth-of-type(2) label:first-of-type {
   display: flex;
   justify-content: flex-end;
+
   pointer-events: none; /* Zorgt ervoor dat dit element niet meer klikbaar is */
+}
+
+section:first-of-type label:first-of-type h2 + p {
+  position: absolute;
+  right: 14%;
+  bottom: 26%;
+
+  transform: rotate(25deg);
+
+  font-family: 'Chalk', fantasy;
 }
 
 section:first-of-type label:first-of-type img {
@@ -262,6 +315,7 @@ section:first-of-type label:first-of-type img {
 section:first-of-type label:nth-of-type(2) img,
 section:nth-of-type(2) label:first-of-type img {
   height: 100%;
+
   display:block;
 }
 
@@ -271,25 +325,30 @@ section:nth-of-type(2) label:nth-of-type(2) img {
 }
 
 section label:first-child {
-position: relative;
-background-color: var(--color-boek);
+  position: relative;
+
+  background-image: url("../images/kaft.jpeg");
+  background-size: cover;
 }
 
 section label:last-child {
-position: absolute;
-left: 0; 
+  position: absolute;
+  left: 0; 
   top: 0;
-background-color: goldenrod;
-transform: rotatey(180deg);
+
+  transform: rotatey(180deg);
 }
 
 main section label ol {
   padding: 0;
   margin: 0;
-  list-style: none;
+  
   position: absolute;
   inset: 0;
+
   transform-style: preserve-3d;
+
+  list-style: none;
 }
 
 main section:nth-of-type(2) label:first-of-type ol {
@@ -298,14 +357,16 @@ main section:nth-of-type(2) label:first-of-type ol {
 
 main section label ol li {
   width: 90%;
+
   position: absolute;
   z-index: 1;
+
   transform-style: preserve-3d;
 }
 
-/********************/
-/* Plaatsing van alle items op de kaart */
-/********************/
+/*****************************************/
+/* PLAATSING VAN ALLE ITEMS OP DE KAART */
+/*****************************************/
 
 main section:first-of-type label:nth-of-type(2) ol li:nth-of-type(1) {
   bottom: 6%;
@@ -318,12 +379,12 @@ main section:first-of-type label:nth-of-type(2) ol li:nth-of-type(2) {
 }
 
 main section:first-of-type label:nth-of-type(2) ol li:nth-of-type(3) {
-  top: 4%;
+  top: 26%;
   left: 3%;
 }
 
 main section:first-of-type label:nth-of-type(2) ol li:nth-of-type(4) {
-  top: 26%;
+  top: 4%;
   left: 3%;
 }
 
@@ -338,16 +399,17 @@ main section:nth-of-type(2) label:nth-of-type(1) ol li:nth-of-type(2) {
 }
 
 main section:nth-of-type(2) label:nth-of-type(1) ol li:nth-of-type(3) {
-  bottom: 3%;
+  bottom: 5%;
   left: 3%;
 }
 
-/********************/
-/* Informatie over Winnie the Pooh */
-/********************/
+/************************************/
+/* INFORMATIE OVER WINNIE THE POOH */
+/***********************************/
 
 main section label ol li > div {
   width: 100%;
+
   display: grid;
   grid-template-columns:1fr 1fr;
   place-items: end start;
@@ -355,16 +417,20 @@ main section label ol li > div {
   bottom: 0;
   left: 0;
   opacity: 0; 
+
   transform-origin: center bottom; /* Zorgt dat de transform vanaf het midden aan de onderkant wordt veranderd */
   transform: rotateX(0deg);
+  backface-visibility: hidden;
+
   transition: opacity 0s 0.8s, transform 0.8s;
   pointer-events: none;
-  backface-visibility: hidden;
 }
 
 main section label ol li div.open-info {
   opacity: 1;
+
   transform: rotateX(-45deg); /* Zorgt ervoor dat wanneer de div de class open-info krijgt deze rechtop komen te staan */
+  
   transition: transform 2s;
 }
 
@@ -413,19 +479,22 @@ main section:nth-of-type(2) label:nth-of-type(1) ol li:nth-of-type(1) div img {
 
 main section label ol li div div {
   position: relative;
-  background-color: rgb(240,225,211);
+
+  background-color: var(--color-light-beige);
 }
 
 main section label ol li div h3 {
-  font-size: inherit;
   width: 100%;
   height: 100%;
   padding: 0.5em 0.5em 0.5em 0.5em;
+
+  font-size: inherit;
 }
 
 main section label ol li div p {
-  font-size: 1cqi;
   width: 100%;
   height: 100%;
   padding: 0 10px 10px 10px;
+
+  font-size: 1cqi; /* Cqi zorgt ervoor dat de tekst zo groot wordt als het element */
 }
