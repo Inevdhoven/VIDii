@@ -99,11 +99,7 @@ button {
 }
 
 button:hover {
-  cursor: url("../images/cursor.png") 4 12, auto!important; /* Source https://developer.mozilla.org/en-US/docs/Web/CSS/cursor */
-}
-
-*{
-  cursor:unset!important;
+  cursor: url("../images/cursor.png") 60 35, auto; /* Source https://developer.mozilla.org/en-US/docs/Web/CSS/cursor */
 }
 
 button:focus-visible {
