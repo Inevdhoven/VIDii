@@ -36,6 +36,7 @@ const button = document.querySelectorAll("li > button");
 button.forEach((item) => {
     // Wanneer je op een button klikt
     item.addEventListener("click", () => {
+        poohsInklappen();
         // Van de button waar op geklikt word op het broertje/zusje de class open-info gezet
         item.nextElementSibling.classList.toggle("open-info");
     });
