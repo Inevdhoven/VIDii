@@ -98,7 +98,16 @@ inputBinnen.addEventListener("click", pauseAudio);
 inputAchterkant.addEventListener("click", playAudio);
 
 function playAudio() {
-    audio.play();
+    //audio.play();
+    if (audio.play() !== undefined) {
+        audio.play().then(function() {
+          // Automatic playback started!
+        }).catch(function(error) {
+          // Automatic playback failed.
+          // Show a UI element to let the user manually start playback.
+          console.log("het is niet gelukt");
+        });
+      }
 }
 
 function pauseAudio() {
