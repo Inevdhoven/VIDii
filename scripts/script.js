@@ -1,4 +1,5 @@
 // JavaScript Document
+// TRANSITIE HEADER EN MAP
 // Hier worden variabelen aangemaakt voor de header, tweede input veld en de eerste article
 const header = document.querySelector("header");
 const inputChecked = document.querySelector("input:nth-of-type(2)");
@@ -29,6 +30,7 @@ function addClassHeader() {
     } 
 }
 
+// ZORGEN DAT INFORMATIE OVER DE WINNIE THE POOHS WORDT LATEN ZIEN
 // Alle button direct in de li worden opgehaald
 const button = document.querySelectorAll("li > button");
 
@@ -63,8 +65,47 @@ function poohsInklappen() {
     });
 }
 
+// ACHTERKANT HONING WORDT BLOED
+// De een na laatste, laatste input en de svg ophalen
+const inputAchterkant = document.querySelector("main article input:nth-of-type(3)");
+const inputMap = document.querySelector("main article input:last-of-type");
+const svg = document.querySelector("svg");
 
+// Wanneer er op de inputs word geklikt word er een functie afgespeeld
+inputMap.addEventListener("click", horror);
+inputAchterkant.addEventListener("click", removeHorror);
 
+// Toeveogen van de class horror
+function horror() {
+    svg.classList.add("horror");
+}
+
+// Verwijderen van de class horror
+function removeHorror() {
+    svg.classList.remove("horror");
+}
+
+// AUDIO AFSPELEN WANNEER BOEK GEOPENT IS
+// Source voor audio https://stackoverflow.com/questions/9419263/how-to-play-audio
+const inputKaft = document.querySelector("main article input:nth-of-type(2)");
+const inputBinnen = document.querySelector("main article input:first-of-type");
+const audio = new Audio("../audio/audio-film.mp3");
+
+//Wanneer je op een van de iputs klikt word de audio op play gezet of gepauseerd
+inputKaft.addEventListener("click", playAudio);
+inputMap.addEventListener("click", pauseAudio);
+inputBinnen.addEventListener("click", pauseAudio);
+inputAchterkant.addEventListener("click", playAudio);
+
+function playAudio() {
+    audio.play();
+}
+
+function pauseAudio() {
+    audio.pause();
+}
+
+// SVG ANIMATIE
 // Dit zorgt ervoor dat er van de honing een animatie word gemaakt door het start en eind path te pakken en daartussen te animeren
 // De rest zorgt ervoor dat hij elke keer opnieuw door blijft gaan
 // https://greensock.com/morphsvg/ en https://greensock.com/forums/topic/18708-reverse-a-morph-and-then-fluidly-repeat-from-the-start/
