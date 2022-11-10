@@ -98,16 +98,15 @@ inputBinnen.addEventListener("click", pauseAudio);
 inputAchterkant.addEventListener("click", playAudio);
 
 function playAudio() {
-    //audio.play();
+    // Source https://stackoverflow.com/questions/37674223/domexception-failed-to-load-because-no-supported-source-was-found
+    // Wanneer de audio niet undefined is.. Verder snap ik deze niet helemaal
     if (audio.play() !== undefined) {
         audio.play().then(function() {
           // Automatic playback started!
         }).catch(function(error) {
           // Automatic playback failed.
-          // Show a UI element to let the user manually start playback.
-          console.log("het is niet gelukt");
         });
-      }
+    }
 }
 
 function pauseAudio() {
