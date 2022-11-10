@@ -89,7 +89,7 @@ function removeHorror() {
 // Source voor audio https://stackoverflow.com/questions/9419263/how-to-play-audio
 const inputKaft = document.querySelector("main article input:nth-of-type(2)");
 const inputBinnen = document.querySelector("main article input:first-of-type");
-const audio = new Audio("./audio/audio-film.mp3");
+const audio = new Audio("../audio/audio-film.mp3");
 
 //Wanneer je op een van de iputs klikt word de audio op play gezet of gepauseerd
 inputKaft.addEventListener("click", playAudio);
