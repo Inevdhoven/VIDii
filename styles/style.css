@@ -23,7 +23,7 @@
   --color-light-beige: rgb(240,225,211);
 
   --book-clamp: clamp(16rem, 50vmin, 30rem);
-  --book-clamp-big: clamp(16rem, 70vmin, 30rem);
+  --book-clamp-big: clamp(16rem, 70vmin, 40rem);
 }
 
 /*************/
@@ -121,7 +121,7 @@ button {
 }
 
 button:hover {
-  cursor: url("../images/cursor.png") 60 35, auto; /* Source https://developer.mozilla.org/en-US/docs/Web/CSS/cursor */
+  cursor: url("../images/cursor.png") 60 35, auto; /* Source https://developer.mozilla.org/en-US/docs/Web/CSS/cursor and image from Disneyclips.com */
 }
 
 button:focus-visible {
@@ -147,12 +147,17 @@ svg {
 }
 
 #eind {
-  visibility: hidden;
+  visibility: hidden; /* Zorgt ervoor dat het eind path niet zichtbaar is */
 }
 
 #start, #eind {
-  /* fill: var(--color-honing); */
-  fill: url(#MyGradient);
+  fill: url(#honing);
+  transition: fill .4s ease;
+}
+
+svg.horror #start,
+svg.horror #eind {
+  fill: url(#horror);
 }
 
 /********************/
@@ -214,6 +219,7 @@ article:first-of-type {
 
   transform: translateY(-50%);
   transform-style: preserve-3d; /* Zorgt voor het 3D effect */
+  
   transition: 2s;
 }
 
@@ -284,6 +290,14 @@ section label {
   transform-style: preserve-3d;
 
   backface-visibility: hidden; /* Zorgt dat de achterkant van de pagina niet zichtbaar is */
+
+  transition: box-shadow 1s;
+}
+
+article.map section label {
+  -webkit-box-shadow: 21px 18px 30px -6px rgb(0 0 0 / 30%);
+  -moz-box-shadow: 21px 18px 30px -6px rgb(0 0 0 / 30%);
+  box-shadow: 21px 18px 30px -6px rgb(0 0 0 / 30%);
 }
 
 section:first-of-type label:first-of-type {
@@ -300,7 +314,7 @@ section:nth-of-type(2) label:first-of-type {
 
 section:first-of-type label:first-of-type h2 + p {
   position: absolute;
-  right: 14%;
+  right: 11%;
   bottom: 26%;
 
   transform: rotate(25deg);
@@ -327,7 +341,7 @@ section:nth-of-type(2) label:nth-of-type(2) img {
 section label:first-child {
   position: relative;
 
-  background-image: url("../images/kaft.jpeg");
+  background-image: url("../images/kaft.jpeg"); /* Van thewallpapers.org */
   background-size: cover;
 }
 
@@ -434,6 +448,10 @@ main section label ol li div.open-info {
   transition: transform 2s;
 }
 
+main section:nth-of-type(2) label ol li div.open-info {
+  transform: rotateX(-30deg);
+}
+
 main section:first-of-type label:nth-of-type(2) ol li:nth-of-type(1) div.open-info {
   place-items: end start;
 }
@@ -497,4 +515,56 @@ main section label ol li div p {
   padding: 0 10px 10px 10px;
 
   font-size: 1cqi; /* Cqi zorgt ervoor dat de tekst zo groot wordt als het element */
+}
+
+@media only screen and (min-width: 1536px) {
+  main section label ol li div p {
+    font-size: 1em;
+  }
+}
+
+/***************************/
+/* FOOTER -> BIJL ANIMATIE */
+/**************************/
+
+footer {
+  width: 10em;
+  height: 9em;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(6em, 0em) rotate(0);
+  transition: transform 500ms ease;
+}
+
+footer:hover {
+  transform: translate(0em, 10em) rotate(-90deg);
+}
+
+footer::before {
+  content: '';
+
+  width: 3em;
+  height: 1.5em;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  background: rgb(102,103,103);
+  background: linear-gradient(90deg, rgba(102,103,103,1) 0%, rgba(161,164,164,1) 25%, rgba(201,201,201,1) 50%, rgba(161,164,164,1) 75%, rgba(102,103,103,1) 100%);
+  border-radius: 30% 0% 0% 30% / 50% 59% 0% 50%;
+}
+
+footer::after {
+  content: '';
+
+  width: 0.7em;
+  height: 9em;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  background-color: rgb(50 34 18);
 }
