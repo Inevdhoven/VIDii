@@ -308,6 +308,7 @@ Wat ik lastig vond is perspective en javascript. Op sommige momenten raak ik zo 
 14. https://stackoverflow.com/questions/14051351/svg-gradient-using-css
 15. https://www.cssmatic.com/box-shadow
 16. https://stackoverflow.com/questions/9419263/how-to-play-audio
+17. https://stackoverflow.com/questions/37674223/domexception-failed-to-load-because-no-supported-source-was-found
 
 ### Image sources
 
